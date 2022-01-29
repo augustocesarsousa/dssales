@@ -26,6 +26,60 @@ function SalesTable() {
             <td>Crédito</td>
             <td>R$ 120.000,00</td>
           </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
+          <tr>
+            <td>#341</td>
+            <td>07/11/2020</td>
+            <td>Feminino</td>
+            <td>Roupas e acessórios</td>
+            <td>Franscisco Morato</td>
+            <td>Crédito</td>
+            <td>R$ 120.000,00</td>
+          </tr>
         </tbody>
       </table>
     </div>

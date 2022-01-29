@@ -58,3 +58,9 @@ export const buildChartSeries = (salesByDate: SalesByDate[] = []) => {
     y: sum
   }));
 };
+
+export const sumSalesByDate = (salesByDate: SalesByDate[] = []) => {
+  return salesByDate.reduce((perviousValue, currentValue) => {
+    return perviousValue + currentValue.sum;
+  }, 0);
+};

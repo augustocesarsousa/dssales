@@ -25,7 +25,7 @@ function App() {
         setSalesByStore(newSalesByStore);
       })
       .catch(() => {
-        console.error('Erro to fetch sales by date');
+        console.error('Erro to fetch sales by store');
       });
   }, [params]);
 
@@ -37,13 +37,12 @@ function App() {
         setSalesByPaymentMethod(newSalesByPaymentMethod);
       })
       .catch(() => {
-        console.error('Erro to fetch sales by date');
+        console.error('Erro to fetch sales by payment method');
       });
   }, [params]);
 
   const onFilterChange = (filter: FilterData) => {
     setFilterData(filter);
-    console.log({ filter });
   };
 
   return (
@@ -61,7 +60,7 @@ function App() {
             series={salesByPaymentMethod?.series}
           />
         </div>
-        <SalesTable />
+        <SalesTable filterData={filterData} />
       </div>
     </>
   );

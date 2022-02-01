@@ -21,6 +21,21 @@ export type SalesByPaymentMethod = {
   sum: number;
 };
 
+export type SaleResponse = {
+  content: Sale[];
+};
+
+export type Sale = {
+  id: number;
+  date: string;
+  volume: number;
+  total: number;
+  gender: Gender;
+  categoryName: string;
+  paymentMethod: string;
+  storeName: string;
+};
+
 export type ChartSeriesData = {
   x: string;
   y: number;
@@ -31,7 +46,7 @@ export type PieChartConfig = {
   series?: number[];
 };
 
-export type Gender = 'MALE' | 'FAMALE' | 'OTHER';
+export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
 
 export type FilterData = {
   dates?: Date[];

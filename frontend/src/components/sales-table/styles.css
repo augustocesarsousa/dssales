@@ -19,6 +19,14 @@
   font-size: 16px;
 }
 
+.sales-table thead th:first-of-type {
+  padding-left: 30px;
+}
+
+.sales-table tbody td:first-of-type {
+  padding-left: 30px;
+}
+
 .sales-table tbody td {
   height: 55px;
   border-top: 1px solid var(--grey-light-125-color);
@@ -36,4 +44,10 @@
 
 .sales-table tbody tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sales-table-no-results {
+  color: var(--white);
+  font-size: 18px;
+  text-align: center;
 }

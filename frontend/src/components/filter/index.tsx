@@ -1,6 +1,6 @@
 import flatpickrlib from 'flatpickr';
 import { Portuguese } from 'flatpickr/dist/l10n/pt';
-import 'flatpickr/dist/themes/material_green.css';
+import 'flatpickr/dist/themes/dark.css';
 import React, { useState } from 'react';
 import FlatPicker from 'react-flatpickr';
 import { FilterData, Gender } from '../../types';
@@ -17,7 +17,7 @@ function Filter({ onFilterChange }: Props) {
   const [gender, setGender] = useState<Gender>();
 
   const onChangeDate = (dates: Date[]) => {
-    if (dates.length === 2) {
+    if (dates.length === 0 || dates.length === 2) {
       setDates(dates);
       onFilterChange({ dates, gender });
     }
@@ -34,8 +34,7 @@ function Filter({ onFilterChange }: Props) {
       <FlatPicker
         options={{
           mode: 'range',
-          dateFormat: 'd/m/Y',
-          showMonths: 2
+          dateFormat: 'd/m/Y'
         }}
         className="filter-input"
         onChange={onChangeDate}

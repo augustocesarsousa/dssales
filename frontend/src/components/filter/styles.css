@@ -1,10 +1,11 @@
 .filter-container {
   margin-top: 30px;
   margin-bottom: 40px;
-  height: 80px;
+  padding: 20px;
+  min-height: 80px;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding-left: 30px;
 }
 
 .filter-input {
@@ -16,13 +17,44 @@
   border-radius: 10px;
   width: 250px;
   padding: 12px 5px 12px 20px;
-}
-
-.filter-input:first-of-type {
-  margin-right: 55px;
+  margin-bottom: 20px;
 }
 
 .filter-input::placeholder {
   font-size: 16px;
   color: var(--grey-light-50-color);
+}
+
+.filter-button {
+  height: 45px;
+  font-size: 16px;
+  border: 1px solid var(--grey-light-150-color);
+  border-radius: 10px;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.filter-button:hover {
+  background-color: var(--grey-light-100-color);
+}
+
+.filter-button:active {
+  background-color: var(--grey-light-150-color);
+}
+
+@media (min-width: 576px) {
+  .filter-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 576px) {
+  .filter-input {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .filter-button {
+    width: 250px;
+  }
 }

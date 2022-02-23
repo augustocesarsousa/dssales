@@ -1,6 +1,7 @@
 .sales-by-date-container {
-  height: 390px;
-  padding: 25px 15px 50px 30px;
+  height: 480px;
+  padding: 25px;
+  margin-bottom: 40px;
 }
 
 .sales-by-date-title {
@@ -16,8 +17,9 @@
 .sales-by-date-data {
   height: 240px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 15px;
 }
 
 .sales-by-date-quantity {
@@ -37,5 +39,21 @@
 }
 
 .sales-by-date-chart {
-  width: 890px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+@media (min-width: 992px) {
+  .sales-by-date-container {
+    height: 350px;
+  }
+
+  .sales-by-date-data {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sales-by-date-chart {
+    width: 890px;
+  }
 }

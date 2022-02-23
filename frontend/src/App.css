@@ -1,10 +1,38 @@
 .app-container {
-  padding: 0 55px;
+  padding: 0 10px;
+  max-width: 1350px;
+  margin: auto;
 }
 
 .sales-overview-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 40px;
+}
+
+#videoCont {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sales-pie-chart-container {
+    display: flex;
+    flex: 1;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sales-overview-container {
+    flex-direction: row;
+  }
+
+  .sales-pie-chart-container {
+    margin-left: 40px;
+  }
 }

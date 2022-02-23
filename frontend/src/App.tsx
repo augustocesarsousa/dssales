@@ -53,12 +53,18 @@ function App() {
         <SalesByDate filterData={filterData} />
         <div className="sales-overview-container">
           <SalesSummary filterData={filterData} />
-          <PieChartCard name="Lojas" labels={salesByStore?.labels} series={salesByStore?.series} />
-          <PieChartCard
-            name="Pagamento"
-            labels={salesByPaymentMethod?.labels}
-            series={salesByPaymentMethod?.series}
-          />
+          <div className="sales-pie-chart-container">
+            <PieChartCard
+              name="Lojas"
+              labels={salesByStore?.labels}
+              series={salesByStore?.series}
+            />
+            <PieChartCard
+              name="Pagamento"
+              labels={salesByPaymentMethod?.labels}
+              series={salesByPaymentMethod?.series}
+            />
+          </div>
         </div>
         <SalesTable filterData={filterData} />
       </div>

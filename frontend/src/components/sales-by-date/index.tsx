@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import { ChartSeriesData, FilterData, SalesByDate } from '../../types';
 import { formatDate, formatPrice } from '../../utils/formatters';
 import { buildFilterParams, makeRequest } from '../../utils/request';
+import ThreeDots from '../loader';
 import { buildChartSeries, chartOptions, sumSalesByDate } from './helpers';
 import './styles.css';
 
@@ -11,28 +12,33 @@ type Props = {
 };
 
 function SalesByDateComponent({ filterData }: Props) {
-  const [chartSeries, setChartSerires] = useState<ChartSeriesData[]>([]);
-  const [totalSum, settotalSum] = useState(0);
+  const [chartSeries, setChartSeries] = useState<ChartSeriesData[]>([]);
+  const [totalSum, setTotalSum] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const params = useMemo(() => buildFilterParams(filterData), [filterData]);
 
   useEffect(() => {
+    setIsLoading(true);
     makeRequest
       .get<SalesByDate[]>('/sales/by-date', { params })
       .then((response) => {
         const newChartSeries = buildChartSeries(response.data);
-        setChartSerires(newChartSeries);
+        setChartSeries(newChartSeries);
         const newTotalSum = sumSalesByDate(response.data);
-        settotalSum(newTotalSum);
+        setTotalSum(newTotalSum);
       })
       .catch(() => {
-        console.error('Erro to fetch sales by date');
+        console.error('Error to fetch sales by date');
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [params]);
 
   return (
     <div className="sales-by-date-container base-card">
-      <div>
+      <div className="sales-by-date-title-container">
         <h4 className="sales-by-date-title">Evolução das vendas</h4>
         {filterData?.dates !== undefined && filterData?.dates?.length > 0 && (
           <span className="sales-by-date-period">
@@ -42,11 +48,20 @@ function SalesByDateComponent({ filterData }: Props) {
       </div>
       <div className="sales-by-date-data">
         <div className="sales-by-date-quantity-container">
-          <h2 className="sales-by-date-quantity">{formatPrice(totalSum)}</h2>
-          <span className="sales-by-date-quantity-label">Vendas no período</span>
-          <span className="sales-by-date-quantity-description">
-            O gráfico mostra as vendas em todas as lojas
-          </span>
+          {isLoading ? (
+            <div className="sales-by-date-quantity-loader">
+              <ThreeDots />
+              <p>Carregando dados...</p>
+            </div>
+          ) : (
+            <>
+              <h2 className="sales-by-date-quantity">{formatPrice(totalSum)}</h2>
+              <span className="sales-by-date-quantity-label">Vendas no período</span>
+              <span className="sales-by-date-quantity-description">
+                O gráfico mostra as vendas em todas as lojas
+              </span>
+            </>
+          )}
         </div>
         <div className="sales-by-date-chart">
           <ReactApexChart

@@ -17,6 +17,7 @@ function PieChartCard({ labels = [], name, series = [] }: Props) {
         width="300"
         height="400"
         series={series}
+        className="pie-chart"
       />
     </div>
   );

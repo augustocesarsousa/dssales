@@ -46,6 +46,11 @@ export const buildPieChartConfig = (labels: string[] = [], name: string) => {
                 return name;
               }
             },
+            value: {
+              show: true,
+              offsetY: 20,
+              color: '#fff'
+            },
             total: {
               show: true,
               showAlways: true,

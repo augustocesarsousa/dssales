@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.pie-chart {
+  margin-bottom: 35px;
+}
+
 @media (min-width: 992px) {
   .pie-chart-card-content:first-child {
     margin-right: 40px;

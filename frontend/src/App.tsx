@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Filter from './components/filter';
+import Footer from './components/footer';
 import Header from './components/header';
 import PieChartCard from './components/pie-chart-card';
 import SalesByDate from './components/sales-by-date';
@@ -68,6 +69,7 @@ function App() {
         </div>
         <SalesTable filterData={filterData} />
       </div>
+      <Footer />
     </>
   );
 }

@@ -4,7 +4,7 @@ import './styles.css';
 
 function Footer() {
   return (
-    <footer className="footer-container bg-primary">
+    <footer className="footer-container">
       <div className="footer-content">
         <div className="footer-text">
           <p>Desenvolvido por - </p>

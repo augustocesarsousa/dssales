@@ -36,6 +36,18 @@ export type Sale = {
   storeName: string;
 };
 
+export type SalePage = {
+  content?: Sale[];
+  last: boolean;
+  totalPages: number;
+  totalElements: number;
+  first: boolean;
+  number: number;
+  numberOfElements?: number;
+  size?: number;
+  empty?: boolean;
+};
+
 export type ChartSeriesData = {
   x: string;
   y: number;
@@ -51,4 +63,5 @@ export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
 export type FilterData = {
   dates?: Date[];
   gender?: Gender;
+  page?: number;
 };

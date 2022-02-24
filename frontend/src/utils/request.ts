@@ -16,6 +16,7 @@ export const buildFilterParams = (
     minDate: formatDateToServer(filterData?.dates?.[0]),
     maxDate: formatDateToServer(filterData?.dates?.[1]),
     gender: filterData?.gender,
+    page: filterData?.page,
     ...extraParams
   };
 };

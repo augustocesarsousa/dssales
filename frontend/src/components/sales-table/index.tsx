@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FilterData, Sale, SaleResponse } from '../../types';
+import { FilterData, SalePage } from '../../types';
 import { formatDate, formatGender, formatPrice } from '../../utils/formatters';
 import { buildFilterParams, makeRequest } from '../../utils/request';
+import Pagination from '../pagination';
 import './styles.css';
 
 type Props = {
@@ -9,30 +10,45 @@ type Props = {
 };
 
 const extraParams = {
-  page: 0,
   size: 12,
   sort: 'date,desc'
 };
 
 function SalesTable({ filterData }: Props) {
-  const [sales, setSales] = useState<Sale[]>([]);
+  const [activePage, setActivePage] = useState(0);
+
+  const [page, setPage] = useState<SalePage>({
+    first: true,
+    last: true,
+    number: 0,
+    totalElements: 0,
+    totalPages: 0
+  });
+
   const params = useMemo(() => buildFilterParams(filterData, extraParams), [filterData]);
 
   useEffect(() => {
+    params.page = activePage;
+
     makeRequest
-      .get<SaleResponse>('/sales', { params })
+      .get('/sales', { params })
       .then((response) => {
-        setSales(response.data.content);
+        setPage(response.data);
       })
       .catch(() => {
         console.error('Erro to fetch sales');
       });
-  }, [params]);
+  }, [params, activePage]);
+
+  const changePage = (index: number) => {
+    setActivePage(index);
+  };
 
   return (
     <div className="sales-table-container base-card">
       <h3 className="sales-table-title">Vendas recentes</h3>
-      {sales.length > 0 ? (
+      <Pagination page={page} onPageChance={changePage} />
+      {page.totalElements > 0 ? (
         <table className="sales-table">
           <thead>
             <tr>
@@ -46,15 +62,15 @@ function SalesTable({ filterData }: Props) {
             </tr>
           </thead>
           <tbody>
-            {sales.map((sale) => (
-              <tr key={sale.id}>
-                <td>#{sale.id}</td>
-                <td>{formatDate(sale.date)}</td>
-                <td>{formatGender(sale.gender)}</td>
-                <td>{sale.categoryName}</td>
-                <td>{sale.storeName}</td>
-                <td>{sale.paymentMethod}</td>
-                <td>{formatPrice(sale.total)}</td>
+            {page.content?.map((page) => (
+              <tr key={page.id}>
+                <td>#{page.id}</td>
+                <td>{formatDate(page.date)}</td>
+                <td>{formatGender(page.gender)}</td>
+                <td>{page.categoryName}</td>
+                <td>{page.storeName}</td>
+                <td>{page.paymentMethod}</td>
+                <td>{formatPrice(page.total)}</td>
               </tr>
             ))}
           </tbody>

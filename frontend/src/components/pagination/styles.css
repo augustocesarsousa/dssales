@@ -1,0 +1,14 @@
+.page-item.disabled .page-link {
+  color: var(--light-color);
+  background-color: var(--grey-light-100-color);
+}
+
+.page-item.disabled .numeration {
+  background-color: var(--light-color);
+  color: var(--black-color);
+}
+
+.page-link {
+  color: var(--black-color);
+  background-color: var(--light-color);
+}

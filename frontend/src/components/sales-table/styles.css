@@ -1,12 +1,15 @@
 .sales-table-container {
   margin-bottom: 50px;
   padding: 30px 35px;
-  overflow-x: auto;
 }
 
 .sales-table-title {
   font-size: 18px;
   margin-bottom: 15px;
+}
+
+.sales-table-content {
+  overflow-x: auto;
 }
 
 .sales-table {

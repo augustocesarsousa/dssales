@@ -48,36 +48,38 @@ function SalesTable({ filterData }: Props) {
     <div className="sales-table-container base-card">
       <h3 className="sales-table-title">Vendas recentes</h3>
       <Pagination page={page} onPageChance={changePage} />
-      {page.totalElements > 0 ? (
-        <table className="sales-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Data</th>
-              <th>Gênero</th>
-              <th>Categoria</th>
-              <th>Loja</th>
-              <th>Forma de pagamento</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {page.content?.map((page) => (
-              <tr key={page.id}>
-                <td>#{page.id}</td>
-                <td>{formatDate(page.date)}</td>
-                <td>{formatGender(page.gender)}</td>
-                <td>{page.categoryName}</td>
-                <td>{page.storeName}</td>
-                <td>{page.paymentMethod}</td>
-                <td>{formatPrice(page.total)}</td>
+      <div className="sales-table-content">
+        {page.totalElements > 0 ? (
+          <table className="sales-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Gênero</th>
+                <th>Categoria</th>
+                <th>Loja</th>
+                <th>Forma de pagamento</th>
+                <th>Total</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p className="sales-table-no-results">Sem resultados</p>
-      )}
+            </thead>
+            <tbody>
+              {page.content?.map((page) => (
+                <tr key={page.id}>
+                  <td>#{page.id}</td>
+                  <td>{formatDate(page.date)}</td>
+                  <td>{formatGender(page.gender)}</td>
+                  <td>{page.categoryName}</td>
+                  <td>{page.storeName}</td>
+                  <td>{page.paymentMethod}</td>
+                  <td>{formatPrice(page.total)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className="sales-table-no-results">Sem resultados</p>
+        )}
+      </div>
     </div>
   );
 }

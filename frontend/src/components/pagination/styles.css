@@ -12,3 +12,16 @@
   color: var(--black-color);
   background-color: var(--light-color);
 }
+
+.page-link:hover {
+  color: var(--black-color);
+  background-color: var(--grey-color);
+}
+
+.page-link:active {
+  background-color: var(--grey-light-150-color);
+}
+
+.page-link:focus {
+  color: var(--black-color);
+}

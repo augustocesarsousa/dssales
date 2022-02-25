@@ -1,6 +1,6 @@
 # DS Sales
 
-Este projeto foi desenvolvido no curso Spring React da <a href="https://devsuperior.com.br/" target="_blank">DevSuperior</a> no módulo de Dashboard, ele consiste em uma simulação de um dashboard de vendas implementando as tecnologias mais atilizadas do mercado, abaixo segue uma descrição resumida das tecnologias:
+Este projeto foi desenvolvido no curso Spring React da <a href="https://devsuperior.com.br/" target="_blank">DevSuperior</a> no módulo de Dashboard, ele consiste em uma simulação de um dashboard de vendas implementando as tecnologias mais utilizadas do mercado, abaixo segue uma descrição resumida das tecnologias:
 
 ## **Backend**
 
